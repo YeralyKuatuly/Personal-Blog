@@ -1,13 +1,15 @@
-from django.test import SimpleTestCase
+from django.test import TestCase
+from .models import Article
 
 
-class HomepageTests(SimpleTestCase):
-    def test_url_exists_at_correct_location(self):
-        response = self.client.get("/")
-        self.assertEqual(response.status_code, 200)
+class ArticleModelTest(TestCase):
 
+    def setUp(self):
+        self.article = Article.objects.create(
+            title="Test Article",
+            content="This is a test article content.",
+        )
 
-class AboutpageTests(SimpleTestCase):
-    def test_url_exists_at_correct_location(self):
-        response = self.client.get("/about/")
-        self.assertEqual(response.status_code, 200)
+    def test_article_creation(self):
+        self.assertEqual(self.article.title, "Test Article")
+        self.assertEqual(self.article.content, "This is a test article content.")
