@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <p><small>Published on {{ article.pub_date }}</small></p>
+{% endblock %}

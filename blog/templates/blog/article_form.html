@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ form.instance.pk|default:"Add New" }} Article{% endblock %}
+
+{% block content %}
+    <h1>{{ form.instance.pk|default:"Add New" }} Article</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}
