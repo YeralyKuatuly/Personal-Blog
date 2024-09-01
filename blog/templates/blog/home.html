@@ -6,7 +6,12 @@
     <h1>Articles</h1>
     <ul>
         {% for article in articles %}
-        <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a> - {{ article.pub_date }}</li>
+        <li style="list-style-type: none;">
+            <a href="{{ article.get_absolute_url }}"
+               style="display: block; padding: 10px; text-decoration: none; background-color: #f0f0f0; border-radius: 5px; color: inherit;">
+               <span style="font-weight: bold; color: blue;">{{ article.title }}</span> - {{ article.pub_date }}
+            </a>
+        </li>
         {% endfor %}
     </ul>
 {% endblock %}
